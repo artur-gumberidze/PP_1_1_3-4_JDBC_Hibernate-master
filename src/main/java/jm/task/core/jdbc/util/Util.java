@@ -1,24 +1,25 @@
 package jm.task.core.jdbc.util;
 
-import com.fasterxml.classmate.AnnotationConfiguration;
 import jm.task.core.jdbc.model.User;
-import jm.task.core.jdbc.service.UserService;
+
 import java.util.Properties;
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
+
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.cfg.Environment;
 import org.hibernate.service.ServiceRegistry;;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
 
-public class Util extends Configs {
-    Connection dbConnection;
+public class Util {
+    protected static String dbHost = "127.0.0.1";
+    protected static String dbPort = "3306";
+    protected static String dbUser = "root";
+    protected static String dbPass = "root";
+    protected static String dbName = "kata";
+    public static Connection dbConnection;
 
-    public Connection getDbConnection () {
+    public static Connection getDbConnection () {
         try {
             String connectionString = "jdbc:mysql://" + dbHost + ":" + dbPort + "/" + dbName;
             Class.forName("com.mysql.jdbc.Driver");
